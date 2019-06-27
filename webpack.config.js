@@ -25,7 +25,16 @@ module.exports = {
     "mode" : "development",
     plugins: [
         htmlPlugin, // 都是 json 格式，htmlPlugin 就是上面 new 的对象
-    ]
+    ],
+    "module": {
+        // 第三方匹配规则
+        rules: [
+            {test: /\.js|jsx$/,
+                use: 'babel-loader',
+                exclude: /node_modules/,
+            }
+        ],
+    },
 };
 
 // 以下为 ES6 向外导出模块的 API，所以在这儿不适用 import or from
